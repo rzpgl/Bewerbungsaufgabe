@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 
 namespace BewerbungsAufgabe
@@ -9,21 +9,21 @@ namespace BewerbungsAufgabe
         private string searchId;
         private string filePath;
 
+        public string getApiKey() { return apiKey; }
+        public string getSearchId() { return searchId; }
 
-        public void getPath()
+        public void firstRead()
+        {
+            this.getPath();
+            Console.WriteLine("config wird eingelesen..." + Environment.NewLine);
+            this.readConfig();
+        }
+
+        private void getPath()
         {
             string path = System.AppDomain.CurrentDomain.BaseDirectory;
             string filename = "config.txt";
             filePath = Path.GetFullPath(Path.Combine(path, @"../../../", filename));
-        }
-
-        public void runRead()
-        { this.readConfig(); }
-
-        public void firstRead()
-        {
-            Console.WriteLine("config wird eingelesen..." + Environment.NewLine +
-                              "config erfolgreich eingelesen." + Environment.NewLine);
         }
 
         private void readConfig()
@@ -33,6 +33,7 @@ namespace BewerbungsAufgabe
                 string[] lines = File.ReadAllLines(filePath);
                 apiKey = lines[0];
                 searchId = lines[1];
+                Console.WriteLine("config erfolgreich eingelesen." + Environment.NewLine);
             }
             catch (System.IO.FileNotFoundException e)
             {
@@ -47,8 +48,5 @@ namespace BewerbungsAufgabe
                 Environment.Exit(1);
             }
         }
-
-        public string getApiKey() { return apiKey; }
-        public string getSearchId() { return searchId; }
     }
 }
