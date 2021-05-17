@@ -1,4 +1,6 @@
-﻿namespace BewerbungsAufgabe
+using System;
+
+namespace BewerbungsAufgabe
 // von Alexander Dräger
 {
     public class GoogleSearch
@@ -7,20 +9,23 @@
 
         static void Main(string[] args)
         {
-            bool firstSearch = true;
+            GoogleSearch newProgram = new GoogleSearch();
+            RequestReader request = new RequestReader();
+            ConfigReader config = new ConfigReader();
+            config.firstRead();
             while (newSearch)
             {
-                IOHelper iOHelper = new IOHelper();
-                ConfigReader config = new ConfigReader();
-                if (firstSearch is true) { config.firstRead(); }
-                config.getPath();
-                config.runRead();
                 Search Search = new Search();
-                Search.startSearch(config.getApiKey(), config.getSearchId(), iOHelper.ReadSearchRequest());
-                Search.quitProgram();
-                firstSearch = false;
+                Search.startSearch(config.getApiKey(), config.getSearchId(), request.ReadSearchRequest());
+                newProgram.quitProgram();
             }
+        }
 
+        public void quitProgram()
+        {
+            Console.WriteLine("Neue Suche (beliebige Taste) / Suche beenden(n)");
+            ConsoleKeyInfo endKey = Console.ReadKey(true);
+            if (endKey.Key == ConsoleKey.N) { Environment.Exit(1); }
         }
     }
 }
