@@ -21,7 +21,7 @@ namespace BewerbungsAufgabe
             }
         }
 
-        public void quitProgram()
+        private void quitProgram()
         {
             Console.WriteLine("Neue Suche (beliebige Taste) / Suche beenden(n)");
             ConsoleKeyInfo endKey = Console.ReadKey(true);
