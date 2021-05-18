@@ -3,13 +3,13 @@ using System;
 namespace BewerbungsAufgabe
 // von Alexander Dräger
 {
-    public class GoogleSearch
+    public class NewProgram
     {
         static bool newSearch = true;
 
         static void Main(string[] args)
         {
-            GoogleSearch newProgram = new GoogleSearch();
+            NewProgram newProgram = new NewProgram();
             RequestReader request = new RequestReader();
             ConfigReader config = new ConfigReader();
             config.firstRead();
