@@ -4,10 +4,11 @@ namespace BewerbungsAufgabe
 {
     public class RequestReader
     {
+        string searchRequest;
         public string ReadSearchRequest()
         {
             Console.WriteLine(Environment.NewLine + "Hallo, wonach möchten Sie suchen?");
-            string searchRequest = Console.ReadLine();
+            searchRequest = Console.ReadLine();
             while (searchRequest == "")
             {
                 Console.WriteLine("Keine Eingabe. Bitte erneut versuchen." + Environment.NewLine);
