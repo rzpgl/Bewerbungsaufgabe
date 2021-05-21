@@ -1,7 +1,8 @@
 for(int i=0;i<theAlphabet.size();i++){
-    for (n=0;n<=theAlphabet.size(),n++{if(theChars[n]==theAlphabet.get[1]){
-        System.Out.Println("Buchstabe schon vorhanden"); break;
-        }
+    for (n=0;n<=theAlphabet.size(),n++){
+            if(theChars[n]==theAlphabet.get[1]){
+                 System.Out.Println("Buchstabe schon vorhanden"); break;
+             }
      } 
  theChars[i]=theAlphabet.get[i];
  }
